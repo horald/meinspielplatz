@@ -1,0 +1,14 @@
+var stadtbezirk = {"daten": [
+        {"text": "(ohne)",      "stadt": "ALL"},
+        {"text": "Stachus",     "stadt": "München"},
+        {"text": "Nippes",      "stadt": "Köln"},
+        {"text": "Innenstadt",  "stadt": "Köln"},
+        {"text": "Porz",        "stadt": "Köln"},
+        {"text": "Kalk",        "stadt": "Köln"},
+        {"text": "Mülheim",     "stadt": "Köln"},
+        {"text": "Lindenthal",  "stadt": "Köln"},
+        {"text": "Rodenkirchen","stadt": "Köln"},
+        {"text": "Ehrenfeld",   "stadt": "Köln"},
+        {"text": "Chorweiler",  "stadt": "Köln"}
+    ]
+};
