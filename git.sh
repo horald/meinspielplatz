@@ -6,6 +6,6 @@ else
   echo "Changes of Vers 1.00.014"
   git commit -m "Changes of Vers 1.00.014"
 fi
-git push meinspielplatz
+git push horald.github.io
 
 
