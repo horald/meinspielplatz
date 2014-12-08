@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>Androidportal</title>
+        <!-- Bootstrap -->
+        <link href="../includes/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <script type="text/javascript" src="../data/import/spielplatz.json"></script>
+        <script type="text/javascript" src="../data/stadtbezirk.json"></script>
+        <script type="text/javascript" src="../data/stadtteil.json"></script>
+
+        <script type="text/javascript" src="get.js"></script>
+        <script type="text/javascript" src="myscript.js"></script>
+        <style type="text/css">
+        #f1 { position:fixed; top:0px; left:0px; width:450px; height:150px; background-color:#afa; }
+        </style>
+
+    </head>
+    <body>
+    <div>
+
+<!--
+<table border="1" cellpadding="5" cellspacing="0">
+  <tr>
+    <th>Feldname</th>
+    <td>Eintrag</td>
+  </tr>
+  <script type="text/javascript">
+  for (var eigenschaft in liste) {
+    var sstr = liste[eigenschaft];
+    sstr = sstr.replace("Ã¼","ü"); 
+    sstr = sstr.replace("Ã¶","ö"); 
+    document.write(
+      "<tr><td>" + eigenschaft + "</td>" +
+      "<td><code>" + sstr + "</code></td></tr>"
+    );
+  }
+  </script>
+</table>
+-->
+
+<form name="auswahl" method="GET" action="showtab.html">
+  <a href="../index.html" class="btn btn-primary btn-sm active" role="button">Menü</a> 
+  <script type="text/javascript">
+  var sstadtbezirk = liste["stadtbezirk"];
+  var sstadtteil = liste["stadtteil"];
+  if (!sstadtbezirk) {
+    sstadtbezirk="(ohne)";
+  }
+  if (!sstadtteil) {
+    sstadtteil="(ohne)";
+  }
+  document.write('<a href="openstreetmap.html?stadtbezirk='+sstadtbezirk+'&stadtteil='+sstadtteil+'" class="btn btn-primary btn-sm active" role="button">Map</a> ');
+  </script>
+
+  <script type="text/javascript" src="select_stadtbezirk.js"></script>
+  <script type="text/javascript" src="select_stadtteil.js"></script>
+
+  <input type="checkbox" name="alledaten" value="JA"> alle Daten 
+  <input type="submit" value="Go!"> 
+<!--  <input type="button" name="reload" value="Go!" onClick="window.location.reload()"> -->
+</form>
+
+  <script type="text/javascript">
+  dochtml = '<table class="table">';
+  dochtml = dochtml + '<tr>';
+  dochtml = dochtml + '<th>Nr</th>';
+  dochtml = dochtml + '<th>Spielplatz</th>';
+  dochtml = dochtml + '<th>Stadtbezirk</th>';
+  dochtml = dochtml + '<th>Stadtteil</th>';
+  dochtml = dochtml + '<th>X-Koor</th>';
+  dochtml = dochtml + '<th>Y-Koor</th>';
+  dochtml = dochtml + '</table>';
+  //document.write(dochtml);
+  </script>
+</div>
+
+    <div id="mydiv"></div>
+    </body>
+</html>  

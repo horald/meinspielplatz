@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Androidportal</title>
+
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+        <!-- Bootstrap -->
+        <link href="../includes/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <script type="text/javascript" src="../data/import/spielplatz.json"></script>
+  <script type="text/javascript" src="get.js"></script>
+  <script type="text/javascript">
+
+    var mydata = JSON.parse(spielplatzdaten);
+
+  </script>
+  <script type="text/javascript" src="../data/stadtbezirk.json"></script>
+  <script type="text/javascript" src="../data/stadtteil.json"></script>
+  <style type="text/css">
+    html, body, #map { height: 100%; width: 100%; margin: 0; background: white; }
+  </style>
+
+</head>
+
+<body>
+
+<!--
+<table border="1" cellpadding="5" cellspacing="0">
+  <tr>
+    <th>Feldname</th>
+    <td>Eintrag</td>
+  </tr>
+  <script type="text/javascript">
+  for (var eigenschaft in liste) {
+    document.write(
+      "<tr><td>" + eigenschaft + "</td>" +
+      "<td><code>" + liste[eigenschaft] + "</code></td></tr>"
+    );
+  }
+  </script>
+</table>
+-->
+
+  <form name="auswahl" method="GET" action="openstreetmap.html">
+  <a href="../index.html" class="btn btn-primary btn-sm active" role="button">Menü</a> 
+  <script type="text/javascript">
+  var sstadtbezirk = liste["stadtbezirk"];
+  var sstadtteil = liste["stadtteil"];
+  if (!sstadtbezirk) {
+    sstadtbezirk="(ohne)";
+  }
+  if (!sstadtteil) {
+    sstadtteil="(ohne)";
+  }
+  document.write('<a href="showtab.html?stadtbezirk='+sstadtbezirk+'&stadtteil='+sstadtteil+'" class="btn btn-primary btn-sm active" role="button">Liste</a> ');
+  </script>
+
+  <script type="text/javascript" src="select_stadtbezirk.js"></script>
+  <script type="text/javascript" src="select_stadtteil.js"></script>
+
+  <input type="submit" value="Go!"> 
+  </form>
+  
+  <div id="map"></div>
+
+  <script type="text/javascript">
+
+//    var mydata = JSON.parse(spielplatzdaten);
+
+    var Tiles = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '<a href="http://www.openstreetmap.org" target="_blank">Terms &amp; Feedback</a>'
+    });
+
+    var latitude = 50.941357, longitude = 6.958307, zoom_level = 11;
+
+    var map = L.map('map').addLayer(Tiles).setView([latitude, longitude], zoom_level);
+
+    //Add Points with geoJson:
+    var geojsonFeature = [];
+    var index = 0;
+
+    mydata[0].features.forEach(function(entry) {
+      index = index + 1;
+
+      selstadtbezirk=document.auswahl.stadtbezirk.options.selectedIndex;
+      if (document.auswahl.stadtbezirk.options[selstadtbezirk].text=='(ohne)') {
+        lweiter=true;
+      } else {
+        if (entry.attributes.Stadtbezirk==document.auswahl.stadtbezirk.options[selstadtbezirk].text) {
+          lweiter=true;
+        } else {
+          lweiter=false;
+        }
+      }
+      if (lweiter) {
+        selstadtteil=document.auswahl.stadtteil.options.selectedIndex;
+        if (document.auswahl.stadtteil.options[selstadtteil].text=='(ohne)') {
+          lweiter=true;
+        } else {
+          if (entry.attributes.Stadtteil==document.auswahl.stadtteil.options[selstadtteil].text) {
+            lweiter=true;
+          } else {
+            lweiter=false;
+          }
+        }
+      }
+
+//      if (lweiter) {
+//        lweiter=false;
+//        if (entry.attributes.Tischtennis=="x") {
+//          lweiter=true;
+//        }
+//      }
+
+      if (lweiter) {
+        
+        var arrelem = 
+        {
+          "type": "Feature",
+          "properties": {
+            "name": "spielplatz",
+            "popupContent": "<a href='showdata.html?id="+index+"'>"+entry.attributes.Spielplatzname+"</a>",
+          }, 
+          "geometry": {
+            "type": "Point",
+            "coordinates": [entry.geometry.x, entry.geometry.y]
+          }
+        };
+        geojsonFeature.push(arrelem);
+      }
+
+    })
+
+    var geojsonMarkerOptions = {
+        radius: 8,
+        fillColor: "#ff7800",
+        color: "#000",
+        weight: 1,
+        opacity: 1,
+        fillOpacity: 0.8
+    };
+
+    L.geoJson(geojsonFeature, {
+        onEachFeature: function (feature, layer) {
+            layer.bindPopup(feature.properties.popupContent);
+        },
+        pointToLayer: function (feature, latlong) {
+            return L.circleMarker(latlong, geojsonMarkerOptions);
+        }
+    }).addTo(map);
+  
+  </script>
+</body>
+</html>

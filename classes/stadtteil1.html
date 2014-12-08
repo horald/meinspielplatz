@@ -1,0 +1,87 @@
+<html>
+  <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>Androidportal</title>
+        <!-- Bootstrap -->
+        <link href="../includes/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <script type="text/javascript" src="../data/stadtbezirk.json"></script>
+        <script type="text/javascript" src="../data/stadtteil.json"></script>
+        <script type="text/javascript" src="get.js"></script>
+  </head>
+  <body>
+
+<form name="auswahl" method="GET" action="stadtteil.html">
+  <a href="../index.html" class="btn btn-primary btn-sm active" role="button">Menü</a> 
+  <label>Stadtbezirk: </label>
+
+
+  <script type="text/javascript">
+
+  document.write('<select name="stadtbezirk">');
+
+  stadtbezirk.daten.forEach(function(entry) {
+    sstadtbezirk=entry.text;
+    if (entry.stadt=="ALL") {
+      lweiter=true;
+    } else {
+      if (entry.stadt=="Köln") {
+        lweiter=true;
+      } else {
+        lweiter=false;
+      } 
+    }
+    if (lweiter) {
+      //document.write(sstadtbezirk+"<br>");
+
+      if (liste['stadtbezirk']==sstadtbezirk) {
+        document.write('  <option selected>'+sstadtbezirk+'</option>');
+      } else {
+        document.write('  <option>'+sstadtbezirk+'</option>');
+      }
+
+    }
+  });
+
+  document.write('</select>');
+
+  </script>
+  <input type="submit" value="Go!"> 
+</form>
+
+  <table class="table">
+  <th>Stadtbezirk</th>
+  <th>Stadtteil</th>
+  <script type="text/javascript">
+  //var mydata = JSON.parse(stadtbezirk);
+  stadtteil.daten.forEach(function(entry) {
+    sstadtteil=entry.text;
+    if (entry.stadt=="ALL") {
+      lweiter=true;
+    } else {
+      if (entry.stadt=="Köln") {
+        lweiter=true;
+      } else {
+        lweiter=false;
+      } 
+    }
+
+    if (lweiter) {
+      selstadtbezirk=document.auswahl.stadtbezirk.options.selectedIndex;
+      if (document.auswahl.stadtbezirk.options[selstadtbezirk].text=='(ohne)') {
+        lweiter=true;
+      } else {
+        if (entry.bezirk==document.auswahl.stadtbezirk.options[selstadtbezirk].text) {
+          lweiter=true;
+        } else {
+          lweiter=false;
+        }
+      }
+    } 
+
+    if (lweiter) {
+      document.write("<tr><td>"+entry.bezirk+"</td><td>"+sstadtteil+"</td></tr>");
+    }
+  });
+  </script>
+  </body>
+</html>
