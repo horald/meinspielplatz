@@ -1,9 +1,14 @@
 <html>
   <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
-        <title>Androidportal</title>
+        <script type="text/javascript" src="../data/config.json"></script>
+        <script type="text/javascript">
+          document.write('<title>'+config.titel+'</title>');
+        </script>
+
         <!-- Bootstrap -->
         <link href="../includes/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <script type="text/javascript" src="../data/staedte.json"></script>
         <script type="text/javascript" src="../data/stadtbezirk.json"></script>
         <script type="text/javascript" src="../data/stadtteil.json"></script>
         <script type="text/javascript" src="get.js"></script>
@@ -16,6 +21,13 @@
 
 
   <script type="text/javascript">
+
+  var sstadt="Köln";
+  stadt.daten.forEach(function(entry) {
+    if (entry.aktiv=="Ja") {
+      sstadt = entry.text;
+    }      
+  });
 
   document.write('<select name="stadtbezirk">');
 
@@ -31,7 +43,7 @@
     if (entry.stadt=="ALL") {
       lweiter=true;
     } else {
-      if (entry.stadt=="Köln") {
+      if (entry.stadt==sstadt) {
         lweiter=true;
       } else {
         lweiter=false;
@@ -65,7 +77,7 @@
     if (entry.stadt=="ALL") {
       lweiter=true;
     } else {
-      if (entry.stadt=="Köln") {
+      if (entry.stadt==sstadt) {
         lweiter=true;
       } else {
         lweiter=false;

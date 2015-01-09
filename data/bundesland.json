@@ -1,0 +1,20 @@
+var bundesland = {"daten": [
+        {"text": "(ohne)"  },
+        {"text": "Baden-Württemberg"  },
+        {"text": "Bayern"  },
+        {"text": "Berlin"  },
+        {"text": "Brandenburg"  },
+        {"text": "Bremen"  },
+        {"text": "Hamburg"  },
+        {"text": "Hessen"  },
+        {"text": "Mecklenburg-Vorpommern"  },
+        {"text": "Niedersachsen"  },
+        {"text": "Nordrhein-Westfalen"  },
+        {"text": "Rheinland-Pfalz"  },
+        {"text": "Saarland"  },
+        {"text": "Sachsen"  },
+        {"text": "Sachsen-Anhalt"  },
+        {"text": "Schleswig-Holstein"  },
+        {"text": "Thüringen"  }
+    ]
+};

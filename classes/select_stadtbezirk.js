@@ -1,6 +1,13 @@
   document.write('<label>Stadtbezirk: </label>');
   document.write('<select name="stadtbezirk">');
 
+  var sstadt="Köln";
+  stadt.daten.forEach(function(entry) {
+    if (entry.aktiv=="Ja") {
+      sstadt = entry.text;
+    }      
+  });
+
   stadtbezirk.daten.forEach(function(entry) {
     sstadtbezirk=entry.text;
     lstadtbezirk=liste['stadtbezirk'];
@@ -10,7 +17,7 @@
     if (entry.stadt=="ALL") {
       lweiter=true;
     } else {
-      if (entry.stadt=="Köln") {
+      if (entry.stadt==sstadt) {
         lweiter=true;
       } else {
         lweiter=false;

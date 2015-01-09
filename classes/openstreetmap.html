@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>Androidportal</title>
+  <title>Opendata</title>
 
   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
   <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
@@ -16,6 +16,7 @@
     var mydata = JSON.parse(spielplatzdaten);
 
   </script>
+  <script type="text/javascript" src="../data/staedte.json"></script>
   <script type="text/javascript" src="../data/stadtbezirk.json"></script>
   <script type="text/javascript" src="../data/stadtteil.json"></script>
   <style type="text/css">
@@ -67,13 +68,17 @@
 
   <script type="text/javascript">
 
-//    var mydata = JSON.parse(spielplatzdaten);
-
     var Tiles = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '<a href="http://www.openstreetmap.org" target="_blank">Terms &amp; Feedback</a>'
     });
 
-    var latitude = 50.941357, longitude = 6.958307, zoom_level = 11;
+    var latitude = 0, longitude = 0, zoom_level = 11;
+    stadt.daten.forEach(function(entry) {
+      if (entry.aktiv=="Ja") {
+          latitude = parseFloat(entry.latitude);
+          longitude = parseFloat(entry.longitude);;
+      }      
+    });
 
     var map = L.map('map').addLayer(Tiles).setView([latitude, longitude], zoom_level);
 

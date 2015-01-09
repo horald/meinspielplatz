@@ -1,6 +1,13 @@
   document.write('<label>Stadtteil: </label>');
   document.write('<select name="stadtteil">');
 
+  var sstadt="Köln";
+  stadt.daten.forEach(function(entry) {
+    if (entry.aktiv=="Ja") {
+      sstadt = entry.text;
+    }      
+  });
+
   stadtteil.daten.forEach(function(entry) {
     sstadtteil=entry.text;
     lstadtteil = liste['stadtteil'];
@@ -17,29 +24,25 @@
     if (sbezirk) {
       sbezirk = sbezirk.replace("Ã¼","ü"); 
     }
+
     if (entry.stadt=="ALL") {
       lweiter=true;
     } else {
-      if (entry.stadt=="Köln") {
-        lweiter=true;
+      if (entry.stadt==sstadt) {
+        if (lstadtbezirk=="(ohne)") {
+          lweiter=true;
+        } else {
+          if (lstadtbezirk==sbezirk) {
+            lweiter=true;
+          } else {
+            lweiter=false;
+          } 
+        }
       } else {
         lweiter=false;
       } 
     }
-    if (lweiter) {
-      if (lstadtbezirk!==sbezirk) {
-        lweiter=false;
-      }
-    }
-    if (entry.bezirk=="ALL") {
-      lweiter=true;
-    }
-    if (lstadtbezirk=="(ohne)") {
-      lweiter=true;
-    }
-    if (!lstadtbezirk) {
-      lweiter=true;
-    }
+
     if (lweiter) {
       //document.write(sstadtbezirk+"<br>");
 

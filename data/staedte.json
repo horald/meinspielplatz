@@ -1,0 +1,21 @@
+var stadt = {"daten": [
+        {"text": "Köln",       "Bundesland":"Nordrhein-Westfalen",  "aktiv":"Ja",     "latitude":"50.941357", "longitude":"6.958307"  },
+        {"text": "Hamburg",    "Bundesland":"Hamburg",              "aktiv":"Nein",   "latitude":"53.546747", "longitude":"10.003680"  },
+        {"text": "Berlin",     "Bundesland":"Berlin",               "aktiv":"Nein",   "latitude":"52.522815", "longitude":"13.398455"  },
+        {"text": "Magdeburg",  "Bundesland":"Sachsen-Anhalt",       "aktiv":"Nein",   "latitude":"52.113161", "longitude":"11.618670"  },
+        {"text": "Münster",    "Bundesland":"Nordrhein-Westfalen",  "aktiv":"Nein",   "latitude":"51.950945", "longitude":"7.630633"   },
+        {"text": "Paderborn",  "Bundesland":"Nordrhein-Westfalen",  "aktiv":"Nein",   "latitude":"51.726936", "longitude":"8.773211"   },
+        {"text": "Leipzig",    "Bundesland":"Sachsen",              "aktiv":"Nein",   "latitude":"51.337382", "longitude":"12.376727"   },
+        {"text": "Dresden",    "Bundesland":"Sachsen",              "aktiv":"Nein",   "latitude":"51.048207", "longitude":"13.750018"   },
+        {"text": "Jena",       "Bundesland":"Thüringen",            "aktiv":"Nein",   "latitude":"50.937568", "longitude":"11.596698"   },
+        {"text": "Chemnitz",   "Bundesland":"Sachsen",              "aktiv":"Nein",   "latitude":"50.812783", "longitude":"12.926043"   },
+        {"text": "Gießen",     "Bundesland":"Hessen",               "aktiv":"Nein",   "latitude":"50.576166", "longitude":"8.685321"   },
+        {"text": "Frankfurt",  "Bundesland":"Hessen",               "aktiv":"Nein",   "latitude":"50.113438", "longitude":"8.696307"   },
+        {"text": "Mainz",      "Bundesland":"Rheinland-Pfalz",      "aktiv":"Nein",   "latitude":"49.972326", "longitude":"8.256854"   },
+        {"text": "Heilbronn",  "Bundesland":"Baden-Württemberg",    "aktiv":"Nein",   "latitude":"49.145686", "longitude":"9.223651"   },
+        {"text": "Stuttgart",  "Bundesland":"Baden-Württemberg",    "aktiv":"Nein",   "latitude":"48.770574", "longitude":"9.168719"   },
+        {"text": "Ulm",        "Bundesland":"Baden-Württemberg",    "aktiv":"Nein",   "latitude":"48.392639", "longitude":"9.981707"   },
+        {"text": "Freiburg",   "Bundesland":"Baden-Württemberg",    "aktiv":"Nein",   "latitude":"47.989822", "longitude":"7.828387"   },
+        {"text": "München",    "Bundesland":"Bayern",               "aktiv":"Nein",   "latitude":"48.133148", "longitude":"11.578228"  }
+    ]
+};

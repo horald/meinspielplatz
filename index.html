@@ -4,10 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Androidportal</title>
+    <title>Opendata</title>
 
     <!-- Bootstrap -->
     <link href="includes/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Menüdaten -->
+    <script type="text/javascript" src="data/menu.json"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -19,16 +22,15 @@
   <body>
     <h1 align="center">OpendataApp</h1>
 
-<!-- <a href="#" class="btn btn-primary btn-lg btn-block" role="button">Home</a> -->
-<a href="classes/showtab.html" class="btn btn-default btn-lg btn-block" role="button">Spielplätze (Liste)</a>
-<a href="classes/openstreetmap.html" class="btn btn-default btn-lg btn-block" role="button">Spielplätze (OS Map)</a>
-<a href="classes/stadtbezirk.html" class="btn btn-default btn-lg btn-block" role="button">Stadtbezirke</a>
-<a href="classes/stadtteil.html" class="btn btn-default btn-lg btn-block" role="button">Stadtteile</a>
-<a href="classes/about.html" class="btn btn-default btn-lg btn-block" role="button">About</a>
+    <script type="text/javascript">
+      menu.daten.forEach(function(entry) {
+        sbez=entry.text;
+        if (sbez) { 
+          sbez = sbez.replace("Ã¼","ü"); 
+        }
+        document.write('<a href="'+entry.link+'" class="btn btn-default btn-lg btn-block" role="button">'+sbez+'</a>');
+      });
+    </script>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="includes/bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>
