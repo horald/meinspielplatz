@@ -62,6 +62,8 @@
   <script type="text/javascript" src="select_stadtteil.js"></script>
 
   <input type="submit" value="Go!"> 
+  <img src="../includes/images/gelb.png" alt="Spielplatzpaten"> Spielplatzpaten
+  <img src="../includes/images/blau.png" alt="Tischtennis"> Tischtennis
   </form>
   
   <div id="map"></div>
@@ -127,10 +129,12 @@
           "properties": {
             "name": "spielplatz",
             "popupContent": "<a href='showdata.html?id="+index+"'>"+entry.attributes.Spielplatzname+"</a>",
+            "Tischtennis":entry.attributes.Tischtennis,
+            "Spielplatzpaten":entry.attributes.Spielplatzpaten
           }, 
           "geometry": {
             "type": "Point",
-            "coordinates": [entry.geometry.x, entry.geometry.y]
+            "coordinates": [entry.geometry.x, entry.geometry.y],
           }
         };
         geojsonFeature.push(arrelem);
@@ -147,12 +151,38 @@
         fillOpacity: 0.8
     };
 
+    var geojsonMarkerOptionsBlue = {
+        radius: 8,
+        fillColor: "#0000ff",
+        color: "#000",
+        weight: 1,
+        opacity: 1,
+        fillOpacity: 0.8
+    };
+
+    var geojsonMarkerOptionsYellow = {
+        radius: 8,
+        fillColor: "#ffff00",
+        color: "#000",
+        weight: 1,
+        opacity: 1,
+        fillOpacity: 0.8
+    };
+ 
     L.geoJson(geojsonFeature, {
         onEachFeature: function (feature, layer) {
             layer.bindPopup(feature.properties.popupContent);
-        },
+        },          
         pointToLayer: function (feature, latlong) {
-            return L.circleMarker(latlong, geojsonMarkerOptions);
+            if (feature.properties.Spielplatzpaten == "x") {
+              return L.circleMarker(latlong, geojsonMarkerOptionsYellow);
+            } else {
+              if (feature.properties.Tischtennis == "x") {
+                return L.circleMarker(latlong, geojsonMarkerOptionsBlue);
+              } else {
+                return L.circleMarker(latlong, geojsonMarkerOptions);
+              }
+            }
         }
     }).addTo(map);
   

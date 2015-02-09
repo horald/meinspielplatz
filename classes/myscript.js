@@ -19,6 +19,9 @@ window.onload = function load() {
      return HTTP_GET_VARS[v];
    }
 
+
+  //var mydata = JSON.parse(spielplatzdaten);
+  //loadJSON("../data/import/spielplatz_münchen1.json", spielplatzdaten);
   var mydata = JSON.parse(spielplatzdaten);
   var ni = document.getElementById('mydiv');
   var newdiv = document.createElement('div');

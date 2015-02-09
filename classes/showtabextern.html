@@ -1,0 +1,40 @@
+﻿<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Androidportal</title>
+  <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+  <!-- Bootstrap -->
+  <link href="../includes/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <script type="text/javascript" src="get.js"></script>
+  <script type="text/javascript" src="../data/stadtbezirk.json"></script>
+  <script type="text/javascript" src="../data/stadtteil.json"></script>
+  <script type="text/javascript" src="showtabextern.js"></script>
+  
+</head>
+<body>
+<form name="auswahl" method="GET" action="showtab.html">
+  <a href="../index.html" class="btn btn-primary btn-sm active" role="button">Menü</a> 
+  <script type="text/javascript">
+  var sstadtbezirk = liste["stadtbezirk"];
+  var sstadtteil = liste["stadtteil"];
+  if (!sstadtbezirk) {
+    sstadtbezirk="(ohne)";
+  }
+  if (!sstadtteil) {
+    sstadtteil="(ohne)";
+  }
+  document.write('<a href="openstreetmap.html?stadtbezirk='+sstadtbezirk+'&stadtteil='+sstadtteil+'" class="btn btn-primary btn-sm active" role="button">Map</a> ');
+  </script>
+
+  <script type="text/javascript" src="select_stadtbezirk.js"></script>
+  <script type="text/javascript" src="select_stadtteil.js"></script>
+
+  <input type="checkbox" name="alledaten" value="JA"> alle Daten 
+  <input type="submit" value="Go!"> 
+</form>
+
+  
+  <div id="mydiv"></div>
+</body>
+</html>

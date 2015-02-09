@@ -23,10 +23,20 @@
     document.write("<th>longitude</th>");
     stadt.daten.forEach(function(entry) {
       selbundesland=document.auswahl.bundesland.options.selectedIndex;
+      sselBundesland=document.auswahl.bundesland.options[selbundesland].text;
+      sBundesland=entry.Bundesland;
+      if (sBundesland) { 
+        sBundesland = sBundesland.replace("Ã¼","ü"); 
+//echo sBundesland."<br>";
+      }
+      if (sselBundesland) { 
+        sselBundesland = sselBundesland.replace("Ã¼","ü"); 
+//echo sBundesland."<br>";
+      }
       if (document.auswahl.bundesland.options[selbundesland].text=='(ohne)') {
         lweiter=true;
       } else {
-        if (entry.Bundesland==document.auswahl.bundesland.options[selbundesland].text) {
+        if (sBundesland==sselBundesland) {
           lweiter=true;
         } else {
           lweiter=false;
