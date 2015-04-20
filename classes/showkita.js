@@ -17,8 +17,8 @@ function cbfunc(mydata) {
           lweiter=true;
           if (lweiter) {
             dochtml = dochtml + '<tr>';
-            //var myvar='entry.proposal.title';
-            var myvar='entry.attributes.Spielplatzname';
+            var myvar='entry.proposal.title';
+            //var myvar='entry.attributes.Spielplatzname';
             dochtml = dochtml + '<td>'+eval(myvar)+'</td>';
             dochtml = dochtml + '</tr>';
           }	
@@ -30,14 +30,14 @@ function cbfunc(mydata) {
 
 }
 
-var url = "http://json2jsonp.com/?url=http://geoportal1.stadt-koeln.de/ArcGIS/rest/services/Spielangebote/MapServer/0/query?text=&geometry=&geometryType=esriGeometryPoint&inSR=&spatialRel=esriSpatialRelIntersects&relationParam=&objectIds=&where=objectid%20is%20not%20null&time=&returnCountOnly=false&returnIdsOnly=false&returnGeometry=true&maxAllowableOffset=&outSR=4326&outFields=*&f=pjson&callback=cbfunc"
-//var url = "http://json2jsonp.com/?url=http://buergerhaushalt.stadt-koeln.de/2015/json&callback=cbfunc"
+//var url = "http://json2jsonp.com/?url=http://geoportal1.stadt-koeln.de/ArcGIS/rest/services/Spielangebote/MapServer/0/query?text=&geometry=&geometryType=esriGeometryPoint&inSR=&spatialRel=esriSpatialRelIntersects&relationParam=&objectIds=&where=objectid%20is%20not%20null&time=&returnCountOnly=false&returnIdsOnly=false&returnGeometry=true&maxAllowableOffset=&outSR=4326&outFields=*&f=pjson&callback=cbfunc"
+var url = "http://json2jsonp.com/?url=http://buergerhaushalt.stadt-koeln.de/2015/json&callback=cbfunc"
 //var url="http://json2jsonp.com/?url=http://github.com/horald/meinspielplatz/tree/gh-pages/data/import/spielplatz.json&callback=cbfunc";
 $.ajax({
- type: 'GET',
- url: url,
+  type: 'GET',
+  url: url,
   jsonp:false,
   dataType :"json",
- crossDomain: true,
- processData: true
+  crossDomain: true,
+  processData: true
 });

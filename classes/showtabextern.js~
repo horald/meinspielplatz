@@ -30,9 +30,8 @@ function cbfunc(mydata) {
 
 }
 
-var url = "http://json2jsonp.com/?url=http://geoportal1.stadt-koeln.de/ArcGIS/rest/services/Spielangebote/MapServer/0/query?text=&geometry=&geometryType=esriGeometryPoint&inSR=&spatialRel=esriSpatialRelIntersects&relationParam=&objectIds=&where=objectid%20is%20not%20null&time=&returnCountOnly=false&returnIdsOnly=false&returnGeometry=true&maxAllowableOffset=&outSR=4326&outFields=*&f=pjson&callback=cbfunc"
+var url = "http://geoportal1.stadt-koeln.de/ArcGIS/rest/services/Spielangebote/MapServer/0/query?text=&geometry=&geometryType=esriGeometryPoint&inSR=&spatialRel=esriSpatialRelIntersects&relationParam=&objectIds=&where=objectid%20is%20not%20null&time=&returnCountOnly=false&returnIdsOnly=false&returnGeometry=true&maxAllowableOffset=&outSR=4326&outFields=*&f=json&callback=cbfunc"
 //var url = "http://json2jsonp.com/?url=http://buergerhaushalt.stadt-koeln.de/2015/json&callback=cbfunc"
-//var url="http://json2jsonp.com/?url=http://github.com/horald/meinspielplatz/tree/gh-pages/data/import/spielplatz.json&callback=cbfunc";
 $.ajax({
  type: 'GET',
  url: url,
