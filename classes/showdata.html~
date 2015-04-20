@@ -32,7 +32,7 @@
    var mydata = JSON.parse(spielplatzdaten);
 
    document.write('<a href="../index.html" class="btn btn-primary btn-sm active" role="button">Menü</a> ');
-   document.write('<a href="showtab.html?id='+GET('id')+'" class="btn btn-primary btn-sm active" role="button">Liste</a> ');
+   document.write('<a href="showtabextern.html?id='+GET('id')+'" class="btn btn-primary btn-sm active" role="button">Liste</a> ');
    document.write('<a href="openstreetmap.html?stadtbezirk='+mydata[0].features[GET('id')-1].attributes.Stadtbezirk+'&stadtteil='+mydata[0].features[GET('id')-1].attributes.Stadtteil+'" class="btn btn-primary btn-sm active" role="button">Map</a> ');
    document.write('<p>');
    

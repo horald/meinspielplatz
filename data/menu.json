@@ -3,6 +3,7 @@ var menu = {"daten": [
         {"text": "Spielplätze (Liste extern)",  "link":"classes/showtabextern.html"},
 //        {"text": "Kita (Liste extern)",         "link":"classes/showkita.html"},
         {"text": "Spielplätze (OS Map)",        "link":"classes/openstreetmap.html"},
+        {"text": "Spielplätze (OS Map extern)", "link":"classes/openstreetmapextern.html"},
         {"text": "Stadtbezirke",                "link":"classes/stadtbezirk.html"},
         {"text": "Stadtteile",                  "link":"classes/stadtteil.html"},
         {"text": "Städte",                      "link":"classes/staedte.html"},

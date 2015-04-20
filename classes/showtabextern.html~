@@ -11,6 +11,7 @@
   </script>
 
   <script type="text/javascript" src="../data/stadtbezirk.json"></script>
+  <script type="text/javascript" src="../data/stadtteil.json"></script>
 
   <script type="text/javascript" src="get.js"></script>
   <script type="text/javascript" src="showtabexternV2.js"></script>

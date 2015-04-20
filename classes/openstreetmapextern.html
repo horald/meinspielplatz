@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Opendata</title>
+
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+  <script type="text/javascript" src="../includes/js/jquery.min.js"></script>
+  <!-- Bootstrap -->
+  <link href="../includes/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <script type="text/javascript" src="get.js"></script>
+  <script type="text/javascript" src="../data/staedte.json"></script>
+  <script type="text/javascript" src="../data/stadtbezirk.json"></script>
+  <script type="text/javascript" src="../data/stadtteil.json"></script>
+
+  <script type="text/javascript" src="openstreetmapextern.js"></script>
+
+  <style type="text/css">
+    html, body, #map { height: 100%; width: 100%; margin: 0; background: white; }
+  </style>
+
+</head>
+
+<body>
+
+<!--
+<table border="1" cellpadding="5" cellspacing="0">
+  <tr>
+    <th>Feldname</th>
+    <td>Eintrag</td>
+  </tr>
+  <script type="text/javascript">
+  for (var eigenschaft in liste) {
+    document.write(
+      "<tr><td>" + eigenschaft + "</td>" +
+      "<td><code>" + liste[eigenschaft] + "</code></td></tr>"
+    );
+  }
+  </script>
+</table>
+-->
+
+  <form name="auswahl" method="GET" action="openstreetmapextern.html">
+  <a href="../index.html" class="btn btn-primary btn-sm active" role="button">Menü</a> 
+  <script type="text/javascript">
+  var sstadtbezirk = liste["stadtbezirk"];
+  var sstadtteil = liste["stadtteil"];
+  if (!sstadtbezirk) {
+    sstadtbezirk="(ohne)";
+  }
+  if (!sstadtteil) {
+    sstadtteil="(ohne)";
+  }
+  document.write('<a href="showtabextern.html?stadtbezirk='+sstadtbezirk+'&stadtteil='+sstadtteil+'" class="btn btn-primary btn-sm active" role="button">Liste</a> ');
+  </script>
+
+  <script type="text/javascript" src="select_stadtbezirk.js"></script>
+  <script type="text/javascript" src="select_stadtteil.js"></script>
+
+  <input type="submit" value="Go!"> 
+  <img src="../includes/images/gelb.png" alt="Spielplatzpaten"> Spielplatzpaten
+  <img src="../includes/images/blau.png" alt="Tischtennis"> Tischtennis
+  </form>
+  
+  <div id="map"></div>
+
+</body>
+</html>
