@@ -25,6 +25,11 @@ $('document').ready(function() {
         jsonp: 'callback',
     });
 });
+function photos (data) {
+    alert(data);
+    console.log(data);
+};
+
 
     var actvers=liste['actvers'];
     document.write('<h4>Spielplatzapp</h4>');
@@ -37,12 +42,6 @@ $('document').ready(function() {
       url='https://github.com/horald/meinspielplatz/archive/gh-pages.zip';
       document.write('Es ist ein neue Version verfügbar: <a href="'+url+'">Download</a>');
     }
-
-function photos (data) {
-    alert(data);
-    console.log(data);
-};
-
   </script>
   </pre>
 </body>

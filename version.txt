@@ -1,2 +1,2 @@
-var versnr ='1.00.018';
-var versdat='20.04.2015';
+var versnr ='1.00.019';
+var versdat='04.05.2015';
